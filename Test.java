@@ -5,10 +5,15 @@ class StringCalculator{
 	int add(String s) {
 		if(s.isEmpty()) {
 			return 0;
-		}else if(s.length()==1) {
-			return Integer.parseInt(s);
 		}else {
-			return Integer.parseInt(String.valueOf(s.charAt(0)))+Integer.parseInt(String.valueOf(s.charAt(2)));
+			int sum=0;
+			char ch[]=s.toCharArray();
+			for(int i=0;i<s.length();i++) {
+				if(ch[i]>=48 && ch[i]<=57){
+					sum=sum+Character.getNumericValue(ch[i]);
+				}
+			}
+			return sum;
 		}
 	}
 }
